@@ -1,5 +1,5 @@
 #Buddy
-version="ALPHA1.0"
+version="1.0"
 #Created by Jura Perić
 
 #Modules
