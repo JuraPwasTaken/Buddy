@@ -10,3 +10,5 @@ Before contributing, please follow these rules:
 -ALWAYS end your function with correctExecution=True. This tells Buddy that it successfully ended a task and that it doesn't have to apologise for not understanding your request, even tho it executed it
 
 -Please for the love of God don't modify the user input or tinker with other variables/lists in your function
+
+-Have the "process tags" (for example, .find("how" and "you")>=0:) written in lowercase letters
