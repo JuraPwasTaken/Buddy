@@ -1,5 +1,5 @@
 #Buddy
-version="1.0"
+version="1.0.1"
 #Created by Jura Perić
 
 #Modules
@@ -14,9 +14,15 @@ calcNum2=0
 secNum=0
 correctExecution=False
 processName=""
+quitExcuse=""
 
 #Lists
 flipCoin=["Heads.", "Tails."]
+
+#Functions
+def quitDetails():
+    if correctExecution!=True:
+        print("{} Quitting {}...".format(quitExcuse ,processName))
 
 #Main code
 print("Hello! I'm Buddy! How can I help you?")
@@ -24,6 +30,7 @@ while True: #Executes forever
     #Resets some important variables
     correctExecution=False
     processName=""
+    quitExcuse="Sorry, but I didn't understand what you said."
     #Asks the user for an input
     userInput=input("{}>>>".format(processName))
 
@@ -63,6 +70,7 @@ while True: #Executes forever
             print("Subtraction: -")
             print("Multiplication: *")
             print("Division: /")
+            correctExecution=True
         else:
             #Addition
             if userInput.find("+")>=0:
@@ -94,8 +102,7 @@ while True: #Executes forever
 
             #Executes this if the userInput doesn't match with anything and if correctExecution is still false
             else:
-                if correctExecution==False:
-                    print("Sorry, but I didn't understand your command. Quitting {}...".format(processName))
+                quitDetails()
 
     #Starts the timer
     if userInput.find("timer")>=0:
@@ -106,6 +113,7 @@ while True: #Executes forever
             print('"minute"')
             print('"second"')
             print('"hour"')
+            correctExecution=True
         else:
             #Timer for seconds
             if userInput.find("second")>=0:
@@ -115,7 +123,8 @@ while True: #Executes forever
                     secNum=secNum-1
                     sleep(1)
                     if secNum==0:
-                        print("Time's up! Quitting TIMER...")
+                        quitExcuse="Time's up!"
+                        quitDetails()
                         correctExecution=True
 
             #Timer for minutes
@@ -127,7 +136,8 @@ while True: #Executes forever
                     secNum=secNum-1
                     sleep(1)
                     if secNum==0:
-                        print("Time's up! Quitting TIMER...")
+                        quitExcuse="Time's up!"
+                        quitDetails()
                         correctExecution=True
 
             #Timer for hours
@@ -139,13 +149,13 @@ while True: #Executes forever
                     secNum=secNum-1
                     sleep(1)
                     if secNum==0:
-                        print("Time's up! Quitting TIMER...")
+                        quitExcuse="Time's up!"
+                        quitDetails()
                         correctExecution=True
 
             #Executes this if the userInput doesn't match with anything and if correctExecution is still false
             else:
-                if correctExecution==False:
-                    print("Sorry, but I didn't understand your command. Quitting {}...".format(processName))
+                quitDetails()
 
     #Checks the time for you
     if userInput.find("what" and "time")>=0:
@@ -153,13 +163,6 @@ while True: #Executes forever
         print("It's currently {}.".format(now.strftime("%H:%M:%S")))
         correctExecution=True
 
-    #The prototype of this program was made in 2019 hope that explains it
-    if userInput.find("creeper")>=0:
-        f=open("/home/pi/Documents/Buddy/ssssssssssssssssssss.txt", "r")
-        print(f.read())
-        correctExecution=True
-
     #Executes this if the userInput doesn't match with anything and if correctExecution is still false
     else:
-        if correctExecution==False:
-            print("Sorry, but I didn't understand your command.")
+        quitDetails()
