@@ -1,12 +1,11 @@
 #Buddy
-version="1.0.1"
+version="1.0.2"
 #Created by Jura Perić
 
 #Modules
-from time import*
-from turtle import*
-from random import*
-from datetime import*
+from time import sleep
+from random import randint, choice
+from datetime import datetime
 
 #Variables
 calcNum1=0
@@ -103,6 +102,7 @@ while True: #Executes forever
             #Executes this if the userInput doesn't match with anything and if correctExecution is still false
             else:
                 quitDetails()
+                correctExecution=True
 
     #Starts the timer
     if userInput.find("timer")>=0:
@@ -156,6 +156,7 @@ while True: #Executes forever
             #Executes this if the userInput doesn't match with anything and if correctExecution is still false
             else:
                 quitDetails()
+                correctExecution=True
 
     #Checks the time for you
     if userInput.find("what" and "time")>=0:
@@ -166,3 +167,4 @@ while True: #Executes forever
     #Executes this if the userInput doesn't match with anything and if correctExecution is still false
     else:
         quitDetails()
+        correctExecution=True
